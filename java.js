@@ -16,3 +16,47 @@ function getHumanChoice(){
     choice = choice.toLowerCase()
     return choice
 }
+
+let humanScore = 0
+let computerScore = 0
+
+function playRound(human,computer){
+    if (human === computer) {
+       return console.log("It's a tie! You selected: "+human+" and the computer selected: "+computer)
+    }
+    else{
+        switch(human){
+            case "rock":
+                if (computer === "paper"){
+                    computerScore += 1
+                    return console.log("You lose! You selected: "+human+" and the computer selected: "+computer)
+                }
+                else {
+                    humanScore += 1
+                    return console.log("You win! You selected: "+human+" and the computer selected: "+computer)
+                }
+            case "paper":
+                if (computer === "scissors"){
+                    computerScore += 1
+                    return console.log("You lose! You selected: "+human+" and the computer selected: "+computer)
+                }
+                else {
+                    humanScore += 1
+                    return console.log("You win! You selected: "+human+" and the computer selected: "+computer)
+                }
+            case "scissors":
+                if (computer === "rock"){
+                    computerScore += 1
+                    return console.log("You lose! You selected: "+human+" and the computer selected: "+computer)
+                }
+                else {
+                    humanScore += 1
+                    return console.log("You win! You selected: "+human+" and the computer selected: "+computer)
+                }
+        }
+    }
+}
+
+playRound(getHumanChoice(),getComputerChoice())
+console.log(humanScore)
+console.log(computerScore)

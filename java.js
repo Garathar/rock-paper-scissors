@@ -24,7 +24,6 @@ buttons.forEach((button) => {
 let container = document.querySelector("#container")
 function playRound(human,computer){ // A function that checks who wins the the round and writes it out into the container
     if (human === computer) {
-        //const para = document.createElement("p")
         para.textContent = "It's a tie! You selected: "+human+" and the computer selected: "+computer
         container.appendChild(para);
     }
@@ -33,14 +32,12 @@ function playRound(human,computer){ // A function that checks who wins the the r
             case "rock":
                 if (computer === "paper"){
                     computerScore += 1
-                    //const para = document.createElement("p")
                     para.textContent = "You lose! You selected: "+human+" and the computer selected: "+computer
                     container.appendChild(para);
                     break;
                 }
                 else {
                     humanScore += 1
-                    //const para = document.createElement("p")
                     para.textContent = "You win! You selected: "+human+" and the computer selected: "+computer
                     container.appendChild(para);
                     break;
@@ -48,14 +45,12 @@ function playRound(human,computer){ // A function that checks who wins the the r
             case "paper":
                 if (computer === "scissors"){
                     computerScore += 1
-                    //const para = document.createElement("p")
                     para.textContent = "You lose! You selected: "+human+" and the computer selected: "+computer
                     container.appendChild(para);
                     break;
                 }
                 else {
                     humanScore += 1
-                    //const para = document.createElement("p")
                     para.textContent = "You win! You selected: "+human+" and the computer selected: "+computer
                     container.appendChild(para);
                     break;
@@ -63,14 +58,12 @@ function playRound(human,computer){ // A function that checks who wins the the r
             case "scissors":
                 if (computer === "rock"){
                     computerScore += 1
-                    //const para = document.createElement("p")
                     para.textContent = "You lose! You selected: "+human+" and the computer selected: "+computer
                     container.appendChild(para);
                     break;
                 }
                 else {
                     humanScore += 1
-                    //const para = document.createElement("p")
                     para.textContent = "You win! You selected: "+human+" and the computer selected: "+computer
                     container.appendChild(para);
                     break;
@@ -83,27 +76,7 @@ if (humanScore >= 5 || computerScore >= 5)
     container.appendChild(finalPara); 
 }
 else {
-    //const para = document.createElement("p")
     finalPara.textContent = `You lost the game! Score\nPlayer: ${humanScore}\nComputer: ${computerScore}`
     container.appendChild(finalPara); 
 }}
 }
-/*
-function playGame(){
-    for (let i = 0; i < 5;i++){
-    const humanSelect = getHumanChoice();
-    const  computerSelect = getComputerChoice();
-    playRound(humanSelect,computerSelect)
-    }
-    if (humanScore > computerScore){
-       return console.log("Congratulation you won!\nYour score: "+humanScore+" Computer score: "+computerScore)
-    }
-    else if (humanScore < computerScore){
-        return console.log("Sadly you have lost!\nYour score: "+humanScore+" Computer score: "+computerScore)
-    }
-    else {
-        return console.log("It's a tie?!\nYour score: "+humanScore+" Computer score: "+computerScore)
-    }
-}
-playGame();
-*/

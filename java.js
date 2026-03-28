@@ -72,7 +72,7 @@ function playRound(human,computer){ // A function that checks who wins the the r
     }
 if (humanScore >= 5 || computerScore >= 5)
 {if (humanScore > computerScore){
-    finalPara.textContent = `You won the game! Score\nPlayer: ${humanScore}\nComputer: ${computerScore}`
+    finalPara.textContent = `You won the game! Score Player: ${humanScore}\nComputer: ${computerScore}`
     container.appendChild(finalPara); 
 }
 else {

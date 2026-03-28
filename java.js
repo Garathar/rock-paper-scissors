@@ -10,52 +10,85 @@ function getComputerChoice(){ //this function will randomly select a number, and
         return "scissors"
     }
 }
-//This function will prompt the player into deciding a choice, changes so it will be all lowercase and returns its value
-function getHumanChoice(){
-    let choice = prompt("Please select rock,paper or scissors!")
-    choice = choice.toLowerCase()
-    return choice
-}
-
+const finalPara = document.createElement("p")
+const para = document.createElement("p")
 let humanScore = 0
 let computerScore = 0
-
-function playRound(human,computer){ // A function that checks if 
+let buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () =>{
+        let computerChoice = getComputerChoice();
+        playRound(button.id,computerChoice);
+    });
+});
+let container = document.querySelector("#container")
+function playRound(human,computer){ // A function that checks who wins the the round and writes it out into the container
     if (human === computer) {
-       return console.log("It's a tie! You selected: "+human+" and the computer selected: "+computer)
+        //const para = document.createElement("p")
+        para.textContent = "It's a tie! You selected: "+human+" and the computer selected: "+computer
+        container.appendChild(para);
     }
     else{
         switch(human){
             case "rock":
                 if (computer === "paper"){
                     computerScore += 1
-                    return console.log("You lose! You selected: "+human+" and the computer selected: "+computer)
+                    //const para = document.createElement("p")
+                    para.textContent = "You lose! You selected: "+human+" and the computer selected: "+computer
+                    container.appendChild(para);
+                    break;
                 }
                 else {
                     humanScore += 1
-                    return console.log("You win! You selected: "+human+" and the computer selected: "+computer)
+                    //const para = document.createElement("p")
+                    para.textContent = "You win! You selected: "+human+" and the computer selected: "+computer
+                    container.appendChild(para);
+                    break;
                 }
             case "paper":
                 if (computer === "scissors"){
                     computerScore += 1
-                    return console.log("You lose! You selected: "+human+" and the computer selected: "+computer)
+                    //const para = document.createElement("p")
+                    para.textContent = "You lose! You selected: "+human+" and the computer selected: "+computer
+                    container.appendChild(para);
+                    break;
                 }
                 else {
                     humanScore += 1
-                    return console.log("You win! You selected: "+human+" and the computer selected: "+computer)
+                    //const para = document.createElement("p")
+                    para.textContent = "You win! You selected: "+human+" and the computer selected: "+computer
+                    container.appendChild(para);
+                    break;
                 }
             case "scissors":
                 if (computer === "rock"){
                     computerScore += 1
-                    return console.log("You lose! You selected: "+human+" and the computer selected: "+computer)
+                    //const para = document.createElement("p")
+                    para.textContent = "You lose! You selected: "+human+" and the computer selected: "+computer
+                    container.appendChild(para);
+                    break;
                 }
                 else {
                     humanScore += 1
-                    return console.log("You win! You selected: "+human+" and the computer selected: "+computer)
+                    //const para = document.createElement("p")
+                    para.textContent = "You win! You selected: "+human+" and the computer selected: "+computer
+                    container.appendChild(para);
+                    break;
                 }
         }
     }
+if (humanScore >= 5 || computerScore >= 5)
+{if (humanScore > computerScore){
+    finalPara.textContent = `You won the game! Score\nPlayer: ${humanScore}\nComputer: ${computerScore}`
+    container.appendChild(finalPara); 
 }
+else {
+    //const para = document.createElement("p")
+    finalPara.textContent = `You lost the game! Score\nPlayer: ${humanScore}\nComputer: ${computerScore}`
+    container.appendChild(finalPara); 
+}}
+}
+/*
 function playGame(){
     for (let i = 0; i < 5;i++){
     const humanSelect = getHumanChoice();
@@ -73,3 +106,4 @@ function playGame(){
     }
 }
 playGame();
+*/
